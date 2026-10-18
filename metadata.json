@@ -1,0 +1,6 @@
+{
+  "name": "本地文件内容搜索工具",
+  "description": "兼容 txt、doc、docx、excel、csv、json、pdf、html 等格式的本地 PC 文件内容检索工具 (Local Full Text Search)，支持正则表达式、短语搜索、结果预览与本地文件浏览。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
