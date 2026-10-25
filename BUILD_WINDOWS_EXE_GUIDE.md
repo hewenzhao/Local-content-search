@@ -91,12 +91,15 @@ npm run electron:build:win
 - **原因**：自行打包的软件未向微软购买昂贵的数字签名证书（EV Code Signing），属于正常的防误触机制。
 - **解决办法**：点击弹窗中的 **“更多信息”**，然后点击右下角的 **“仍要运行”** 即可正常开启。
 
-### 2. 打包过程中提示下载 electron 相关的 zip 较慢
-- **解决办法**：国内网络可配置淘宝/npm镜像加速下载：
-  ```bash
-  npm config set ELECTRON_MIRROR https://npmmirror.com/mirrors/electron/
+### 2. 打包过程中下载 electron 核心库较慢或超时
+- **已全面优化**：项目中的 `build-electron.cjs` 和批处理脚本已**自动内置国内高速镜像加速源**（npmmirror），无需手动设置任何环境变量。
+- 如需在命令行手动执行并指定镜像，CMD 中可运行：
+  ```cmd
+  set ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/
+  set ELECTRON_BUILDER_BINARIES_MIRROR=https://npmmirror.com/mirrors/electron-builder-binaries/
   npm run electron:build
   ```
+  *(注意：Windows CMD 中请使用 `set` 而不是 `npm config set`)*
 
 ### 3. 如何更换软件图标？
 - 准备一张 `icon.ico` 图标文件，放置在项目根目录中；

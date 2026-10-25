@@ -450,6 +450,12 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
             <span>本地 PC 文件内容检索工具 (Local Full Text Search) · 支持纯离线解析</span>
+            <span className="font-mono font-bold text-amber-900 bg-amber-100 px-1.5 py-0.5 rounded border border-amber-300 text-xs">
+              v2.0
+            </span>
+            <span className="text-stone-500 font-medium text-xs">
+              (Oct, 2026)
+            </span>
             <span className="text-stone-300 hidden sm:inline">|</span>
             <span className="font-medium text-stone-800 bg-stone-100 px-2 py-0.5 rounded border border-stone-200/80">
               设计者·贺文照

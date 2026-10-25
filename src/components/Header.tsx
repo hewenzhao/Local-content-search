@@ -84,6 +84,12 @@ export const Header: React.FC<HeaderProps> = ({
                 <h1 className="text-xl font-bold text-stone-900 tracking-tight">
                   本地文件内容搜索工具
                 </h1>
+                <span className="inline-flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded bg-amber-500/15 text-amber-900 border border-amber-300 font-mono shadow-2xs">
+                  v2.0
+                </span>
+                <span className="inline-flex items-center text-xs font-medium px-2 py-0.5 rounded bg-stone-100 text-stone-700 border border-stone-200">
+                  Oct, 2026
+                </span>
                 <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-900 border border-amber-200 tracking-wide">
                   Local Full Text Search
                 </span>
@@ -97,9 +103,11 @@ export const Header: React.FC<HeaderProps> = ({
                   </span>
                 )}
               </div>
-              <p className="text-xs text-stone-500 mt-0.5">
-                支持 TXT · Word · Excel · CSV · JSON · PDF · HTML | 正则与双引号短语搜索
-              </p>
+              <div className="flex items-center gap-2 text-xs text-stone-500 mt-0.5 flex-wrap">
+                <span>支持 TXT · Word · Excel · CSV · JSON · PDF · HTML | 正则与双引号短语搜索</span>
+                <span className="text-stone-300 hidden sm:inline">|</span>
+                <span className="font-medium text-stone-700 bg-stone-100 px-1.5 py-0.5 rounded text-[11px] border border-stone-200">设计者：贺文照</span>
+              </div>
             </div>
           </div>
 

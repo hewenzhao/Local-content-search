@@ -43,7 +43,7 @@ export const BuildGuideModal: React.FC<BuildGuideModalProps> = ({ isOpen, onClos
                 Windows .exe 编译与打包操作指南
               </h2>
               <p className="text-xs text-stone-500">
-                项目已集成 Electron 与 electron-builder，可一键输出单文件绿色版或安装包
+                项目已集成 Electron 与 electron-builder，可一键输出单文件绿色版或安装包 (v2.0 · Oct, 2026)
               </p>
             </div>
           </div>
@@ -178,7 +178,7 @@ export const BuildGuideModal: React.FC<BuildGuideModalProps> = ({ isOpen, onClos
                   <span>便携免安装单文件版 (.exe)</span>
                 </div>
                 <div className="text-stone-500 font-mono text-[11px] mt-1">
-                  本地文件内容搜索工具-便携单文件版-1.0.0.exe
+                  本地文件内容搜索工具-便携单文件版-2.0.0.exe
                 </div>
                 <p className="text-stone-600 mt-1.5 text-[11px] leading-relaxed">
                   无需安装，随拷随用，双击直接运行。推荐放置于 U 盘或工具箱中。
@@ -191,7 +191,7 @@ export const BuildGuideModal: React.FC<BuildGuideModalProps> = ({ isOpen, onClos
                   <span>标准 Windows 安装包 (Setup.exe)</span>
                 </div>
                 <div className="text-stone-500 font-mono text-[11px] mt-1">
-                  本地文件内容搜索工具 Setup 1.0.0.exe
+                  本地文件内容搜索工具 Setup 2.0.0.exe
                 </div>
                 <p className="text-stone-600 mt-1.5 text-[11px] leading-relaxed">
                   标准 Windows 安装向导，自动创建桌面快捷图标与开始菜单项。
