@@ -6,7 +6,7 @@ process.env.ELECTRON_MIRROR = 'https://npmmirror.com/mirrors/electron/';
 process.env.ELECTRON_BUILDER_BINARIES_MIRROR = 'https://npmmirror.com/mirrors/electron-builder-binaries/';
 
 console.log('===================================================');
-console.log('  本地文件内容搜索工具 v2.0 (Oct, 2026) - 打包程序');
+console.log('  本地文件内容搜索工具 V3.0 (Oct, 2026) - 打包程序');
 console.log('  设计者：贺文照');
 console.log('  已自动加载国内高速镜像源 (npmmirror.com)');
 console.log('===================================================\n');

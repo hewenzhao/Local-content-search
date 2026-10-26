@@ -68,24 +68,28 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           {/* Brand & Title with submitted app icon */}
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-xl bg-stone-900 flex items-center justify-center shadow-xs overflow-hidden border border-stone-200 shrink-0">
+            <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-xs overflow-hidden border border-stone-200 shrink-0 p-1">
               <img
-                src="/app-icon.png"
-                alt="App Icon"
-                className="w-full h-full object-cover"
+                src="/assets/aistudio/Local-Search2_f61edb1f.jpg"
+                alt="本地文件全文搜索 Logo"
+                className="w-full h-full object-contain rounded-lg"
                 onError={(e) => {
-                  // Fallback if image fails to load
-                  (e.target as HTMLElement).style.display = 'none';
+                  const target = e.target as HTMLImageElement;
+                  if (target.src.includes('Local-Search2_f61edb1f.jpg')) {
+                    target.src = '/app-icon.png';
+                  } else {
+                    target.style.display = 'none';
+                  }
                 }}
               />
             </div>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <h1 className="text-xl font-bold text-stone-900 tracking-tight">
-                  本地文件内容搜索工具
+                  本地文件全文搜索
                 </h1>
                 <span className="inline-flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded bg-amber-500/15 text-amber-900 border border-amber-300 font-mono shadow-2xs">
-                  v2.0
+                  V3.0
                 </span>
                 <span className="inline-flex items-center text-xs font-medium px-2 py-0.5 rounded bg-stone-100 text-stone-700 border border-stone-200">
                   Oct, 2026

@@ -1,6 +1,6 @@
 {
   "appId": "com.localfile.searcher",
-  "productName": "本地文件内容搜索工具",
+  "productName": "本地文件全文搜索",
   "copyright": "Copyright © 2026 设计者·贺文照",
   "directories": {
     "output": "dist-electron"
@@ -42,7 +42,7 @@
     "allowToChangeInstallationDirectory": true,
     "createDesktopShortcut": true,
     "createStartMenuShortcut": true,
-    "shortcutName": "本地文件内容搜索工具"
+    "shortcutName": "本地文件全文搜索"
   },
   "portable": {
     "artifactName": "${productName}-便携单文件版-${version}.${ext}"

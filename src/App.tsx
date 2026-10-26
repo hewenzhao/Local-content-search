@@ -451,7 +451,7 @@ export default function App() {
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
             <span>本地 PC 文件内容检索工具 (Local Full Text Search) · 支持纯离线解析</span>
             <span className="font-mono font-bold text-amber-900 bg-amber-100 px-1.5 py-0.5 rounded border border-amber-300 text-xs">
-              v2.0
+              V3.0
             </span>
             <span className="text-stone-500 font-medium text-xs">
               (Oct, 2026)

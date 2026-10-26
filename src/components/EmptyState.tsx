@@ -37,7 +37,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
   // Case 1: Search returned 0 results
   if (hasFiles && hasQuery) {
     return (
-      <div className="bg-white rounded-xl border border-stone-200 p-12 text-center max-w-lg mx-auto shadow-xs">
+      <div className="bg-white rounded-xl border-4 border-sky-200/80 p-12 text-center max-w-lg mx-auto shadow-xs">
         <div className="w-12 h-12 rounded-full bg-stone-100 text-stone-400 mx-auto flex items-center justify-center mb-3">
           <Search className="w-6 h-6" />
         </div>

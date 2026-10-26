@@ -232,6 +232,9 @@ export const FileViewerModal: React.FC<FileViewerModalProps> = ({
               <span className="text-[11px] px-2 py-0.5 rounded bg-stone-200/80 text-stone-700 font-mono uppercase">
                 {file.extension}
               </span>
+              <span className="text-[11px] px-2 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200 font-medium">
+                全文上下文
+              </span>
             </div>
 
             {/* Path info */}

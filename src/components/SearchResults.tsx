@@ -162,7 +162,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
   };
 
   return (
-    <div className="space-y-4">
+    <div className="rounded-2xl border-4 border-sky-200/80 bg-sky-50/15 p-4 sm:p-5 shadow-2xs space-y-4">
       {/* Results Header Status */}
       <div className="flex items-center justify-between text-xs text-stone-500 px-1">
         <div>
@@ -170,7 +170,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
           累计命中 <strong className="text-amber-700 font-semibold">{totalMatches}</strong> 处
         </div>
         <div className="text-[11px] text-stone-500">
-          点击“浏览文件”可全屏查看正文及命中跳转
+          点击“查看上下文”可全屏查看正文及命中跳转
         </div>
       </div>
 
@@ -297,16 +297,16 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
                       </>
                     )}
 
-                    {/* Browse File Full Screen */}
+                    {/* View File Full Screen */}
                     <button
                       id={`btn-browse-file-${file.id}`}
                       type="button"
                       onClick={() => onOpenFileViewer(file)}
                       className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-white bg-stone-900 hover:bg-stone-800 rounded-md transition-colors shadow-xs cursor-pointer"
-                      title="进入全屏阅览器浏览全文并定位高亮匹配"
+                      title="查看文件全文并定位高亮匹配"
                     >
                       <Eye className="w-3.5 h-3.5 text-amber-400" />
-                      <span>浏览文件</span>
+                      <span>查看文件</span>
                     </button>
                   </div>
                 </div>
@@ -341,10 +341,10 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
                   {displayedMatches.map((m, idx) => (
                     <div
                       key={idx}
-                      className="p-2.5 rounded-lg bg-stone-50/80 border border-stone-200/80 text-xs leading-relaxed select-text"
+                      className="p-2.5 rounded-lg bg-stone-50/80 border border-stone-200/80 text-xs leading-relaxed"
                     >
                       {/* Location Badge (Line / Page / Sheet) */}
-                      <div className="flex items-center justify-between text-[11px] text-stone-600 mb-1">
+                      <div className="flex items-center justify-between text-[11px] text-stone-600 mb-1.5">
                         <div className="flex items-center gap-2">
                           <span className="inline-flex items-center gap-0.5 font-mono text-stone-600 bg-white px-1.5 py-0.5 rounded border border-stone-200">
                             <Hash className="w-3 h-3" /> 第 {m.lineNumber} 行
@@ -364,13 +364,25 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
                         </div>
                       </div>
 
-                      {/* Snippet text with highlighted matched portion */}
-                      <div className="text-stone-700 font-mono text-xs break-all">
-                        <span>{m.snippetBefore}</span>
-                        <mark className="bg-amber-300 text-stone-900 font-bold px-1 py-0.5 rounded shadow-2xs mx-0.5">
-                          {m.matchText}
-                        </mark>
-                        <span>{m.snippetAfter}</span>
+                      {/* Snippet text with highlighted matched portion + 行尾“查看上下文”专属链接 */}
+                      <div className="flex items-center justify-between gap-3 text-stone-700 font-mono text-xs">
+                        <div className="flex-1 break-all select-text leading-relaxed">
+                          <span>{m.snippetBefore}</span>
+                          <mark className="bg-amber-300 text-stone-900 font-bold px-1 py-0.5 rounded shadow-2xs mx-0.5 select-text">
+                            {m.matchText}
+                          </mark>
+                          <span>{m.snippetAfter}</span>
+                        </div>
+
+                        {/* 行尾专属“查看上下文”按钮：除此处外本行其它任何位置均不可链接 */}
+                        <button
+                          type="button"
+                          onClick={() => onOpenFileViewer(file, m.index)}
+                          className="shrink-0 inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 font-sans font-medium px-2 py-1 rounded bg-blue-50 hover:bg-blue-100 border border-blue-200/80 transition-colors cursor-pointer select-none"
+                          title={`查看第 ${m.lineNumber} 行关键词“${m.matchText}”在全文中的上下文`}
+                        >
+                          <span>查看上下文</span>
+                        </button>
                       </div>
                     </div>
                   ))}

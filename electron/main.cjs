@@ -10,7 +10,7 @@ function createWindow() {
     height: 840,
     minWidth: 960,
     minHeight: 640,
-    title: '本地文件内容搜索工具',
+    title: '本地文件全文搜索',
     backgroundColor: '#f5f5f4',
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
@@ -29,7 +29,38 @@ function createWindow() {
   } else {
     // In production build, load the local index.html from dist
     const indexPath = path.join(__dirname, '../dist/index.html');
-    mainWindow.loadFile(indexPath);
+    if (fs.existsSync(indexPath)) {
+      mainWindow.loadFile(indexPath);
+    } else {
+      mainWindow.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(`
+        <!DOCTYPE html>
+        <html lang="zh-CN">
+        <head>
+          <meta charset="UTF-8">
+          <style>
+            body { font-family: system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f8fafc; color: #1e293b; }
+            .card { background: white; padding: 36px 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.06); max-width: 540px; text-align: center; border: 1px solid #e2e8f0; }
+            h2 { color: #dc2626; margin-top: 0; font-size: 20px; }
+            p { font-size: 14px; line-height: 1.6; color: #475569; margin: 12px 0; }
+            .box { background: #0f172a; color: #38bdf8; padding: 14px 18px; border-radius: 8px; text-align: left; font-family: Consolas, monospace; margin: 18px 0; font-size: 13px; line-height: 1.6; }
+          </style>
+        </head>
+        <body>
+          <div class="card">
+            <h2>⚠️ 未找到前端编译文件 (dist/index.html)</h2>
+            <p>因为尚未执行前端代码打包，dist 目录不存在，所以暂无页面内容。</p>
+            <div class="box">
+              # 1. 请在终端或命令提示符中执行编译命令：<br/>
+              <b>npm run build</b><br/><br/>
+              # 2. 编译成功后重新启动 Electron 即可：<br/>
+              <b>npm run electron:start</b>
+            </div>
+            <p>执行 <code>npm run build</code> 后，重新运行本窗口即可正常使用。</p>
+          </div>
+        </body>
+        </html>
+      `)}`);
+    }
   }
 
   mainWindow.on('closed', () => {
