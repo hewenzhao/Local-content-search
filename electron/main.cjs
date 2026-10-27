@@ -5,12 +5,14 @@ const fs = require('fs');
 let mainWindow = null;
 
 function createWindow() {
+  const iconPath = path.join(__dirname, '../public/app-icon.png');
   mainWindow = new BrowserWindow({
     width: 1280,
     height: 840,
     minWidth: 960,
     minHeight: 640,
     title: '本地文件全文搜索',
+    icon: fs.existsSync(iconPath) ? iconPath : undefined,
     backgroundColor: '#f5f5f4',
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
